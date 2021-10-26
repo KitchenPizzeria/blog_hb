@@ -1,0 +1,46 @@
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">TABshot</a>
+</nav>
+
+<div class="posts">
+    <ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Posts</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Profile</a>
+        <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+    </li>
+    </ul>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-7" style="margin-top: 50px;">
+
+            <div class="card">
+                <h5 class="card-title">Posted by {{post.user}}</h5>
+                <p><small> time: {{post.time}} </small></p>
+                <p> {{post.body}} </p>
+                
+                <ul class="comments">
+                    <li class="list-group-item">This is supposed to be a comment</li>
+                    <li class="list-group-item">This is supposed to be a comment</li>
+                </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
