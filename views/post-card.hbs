@@ -1,0 +1,101 @@
+<style>
+    .body {
+        background-color: yellow;
+    }
+    h7 {
+        margin-top: 0.5vh;
+        margin-left:10px;
+
+    }
+
+    .post-info {
+        display:flex;
+        align-items: flex-start;
+    }
+
+    .card-header {
+        align-items: center;
+        background: rgb(179, 207, 156);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .button-list{
+        border-radius: 10px;
+        align-self: flex-end;
+        background: rgb(236, 255, 218);
+    }
+    .card {
+        height: 50vh;
+        overflow: auto;
+    }
+    .card-body {
+        margin: 10px;
+        border-radius: 10px;
+        overflow-y: scroll;
+        background-color: rgb(255, 255, 255]);  
+    }
+
+    .comments {
+        margin: 10px;
+    }
+
+    .card {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 33.33%;
+    }
+
+    .cards {
+    
+    }
+
+    .nav-item:hover {
+        background-color: white;;
+        border-radius: 10px;
+    }
+
+</style>
+
+<div class = "cards">
+    {{#each posts}}
+        <div class="card">
+            <div class="card-header">
+
+                <div class="post-info">
+                    <h4>{{this.user}}</h4>
+                    <h7>{{this.time}}</h7> 
+                </div>
+                <div class="button-list">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Connect</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Like</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Share</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                
+
+            </div>
+
+            <div class="card-body">
+                <p>{{this.body}}</p>
+            </div>  
+
+            <div class="comments">
+                <ul class="comments">
+                    <li class="list-group-item">User303: What a great read !!</li>
+                    <li class="list-group-item">simon_watts: good work</li>
+                </ul>
+            </div>
+        </div>
+    {{/each}}
+</div>
+    
+
