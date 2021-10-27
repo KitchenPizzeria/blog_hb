@@ -30,14 +30,14 @@ pipeline {
     }
     
     
-    stage("Test") {
-      steps {            
-          sh """         
-            chmod +x contains.sh 
-            ./contains.sh "jenkins"
-          """
-      } 
-    }
+//     stage("Test") {
+//       steps {            
+//           sh """         
+//             chmod +x contains.sh 
+//             ./contains.sh "jenkins"
+//           """
+//       } 
+//     }
     
     stage("Package Artifact"){
       steps {
