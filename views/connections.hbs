@@ -1,59 +1,55 @@
 <html>
+    <head>
+        <style>
+            .searchbar {
+                margin-top:10px;
+                width: 22%;
+            }
+            
+            .card {
+                width:20%;
+                margin: 10px;
+            }
 
-<head>
-    <script type = "text/javascript" src="../connections.js"/>
-    <style>
-    .searchbar {
-        margin-top: 10px;
-        width: 22%;
-    }
-    
-    .card {
-        width:20%;
-        margin: 10px;
-    }
+            .form-control {
+                border-radius: 5px;
+            }
 
-    .form-control {
-        border-radius: 5px;
-    }
+            .form-control:hover{
+                border-style: double;
+            }
+        </style>
+        <script type="text/javascript" src="../connections.js"></script>
+    </head>
 
-    .form-control:hover{
-        border-style: double;
-    }
-
-    .logo-dropdown: hover ul.{
-
-    }
-
-    </style>
-</head>
-<body>
-    <form class="searchbar">
-        <div class="input-group">
-            <button onclick="UsernameSearch()">@
+    <body>
+        <form class="searchbar">
+            <div class="input-group">
+            <span class="input-group-text" id="basic-addon1">@</span>
             <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-    </form>
+            </div>
+        </form>
 
-    <div class="card">
-        <div class="card-header">   
-            <h4>Recent Connections</h4>
-        </div>
+        <div class="card">
+            <div class="card-header">   
+                <h4>Recent Connections</h4>
+            </div>
 
-        <div class="card-body">
-            <p>Make some connections and they will show up here !</p>
-        </div>  
-    </div>
-    <div class="card">
-        <div class="card-header">   
-            <h4>Trending</h4>
+            <div class="card-body">
+                <p>Make some connections and they will show up here !</p>
+            </div>  
         </div>
+        <div class="card">
+            <div class="card-header">   
+                <h4>Trending</h4>
+            </div>
 
-        <div class="card-body">
-            <p>People you connect with will have timeline snippets here</p>
-        </div>  
-    </div>
-</body>
+            <div class="card-body">
+                <p>People you connect with will have timeline snippets here</p>
+            </div>  
+        </div>
+        
+    </body>
 
 </html>
 
