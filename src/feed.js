@@ -1,4 +1,4 @@
-import fs from "fs";
+const fs = require('fs');
 
 class Post {
   constructor(data, name, user_id, time, colour) {
@@ -11,14 +11,14 @@ class Post {
 }
 
 const generatePosts = (data) => {
-    var posts = [];
+  var posts = [];
 
   for (var eachpost of data) {
     const newPost = new Post(
-      fs.readFileSync(eachpost["post"], "utf8"), //data
-      eachpost["user"]["name"],
-      eachpost["user"]["user_id"],
-      "23:34",
+      fs.readFileSync(eachpost['post'], 'utf8'), //data
+      eachpost['user']['name'],
+      eachpost['user']['user_id'],
+      '23:34',
       (179, 207, 156)
     );
     //console.log(newPost);
@@ -27,4 +27,4 @@ const generatePosts = (data) => {
   return posts;
 };
 
-export default generatePosts;
+module.exports = generatePosts;
