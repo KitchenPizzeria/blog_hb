@@ -12,7 +12,7 @@ pipeline {
     stage("Download Dependencies"){
       steps{
         echo '********** ${STAGE_NAME} **********'
-        sh npm i
+        sh 'npm i'
       }
     }
 
