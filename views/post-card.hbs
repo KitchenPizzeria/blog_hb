@@ -1,4 +1,8 @@
 <style>
+    h1 {
+        margin-left: 30px;
+        font-style: :underline;
+    }
     .body {
         background-color: yellow;
     }
@@ -43,33 +47,45 @@
     .card {
         margin-top: 20px;
         margin-bottom: 20px;
-        width: 33.33%;
     }
 
-    .cards {
-    
-    }
 
     .nav-item:hover {
         background-color: white;;
         border-radius: 10px;
     }
 
+    .cards {
+        margin: 20px;
+        gap: 20px ;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        font-family: sans-serif;
+    }
+    .featured-posts{
+        margin: 20px;
+        background-color: rgb(166, 223, 215);
+        border-radius: 10px;
+        border-color: rgb(116, 216, 203);
+        font-family: sans-serif;
+    }
 </style>
 
-<div class = "cards">
+<div class = 'featured-posts'>
+    <h1 style="underline">Featured Posts</h1>
+    <div class="cards">
     {{#each posts}}
         <div class="card">
             <div class="card-header">
-
                 <div class="post-info">
                     <h4>{{this.user}}</h4>
                     <h7>{{this.time}}</h7> 
+                    <h7>{{this.user_id}}</h7>
                 </div>
                 <div class="button-list">
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Connect</a>
+                            <a class="nav-link" id= {{this.user_id}} onclick="add_connection(this.id)">Connect</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Like</a>
@@ -96,6 +112,10 @@
             </div>
         </div>
     {{/each}}
+    </div>
 </div>
+
+
+
     
 
