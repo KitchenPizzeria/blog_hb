@@ -8,14 +8,22 @@ pipeline {
   }  
 
   stages {
-    stage("Build"){
-      steps {  
-        echo "The name of this stage: ${STAGE_NAME}"
-        sh'''
-          npm i
-        '''
+
+    stage("Download Dependencies"){
+      steps{
+        echo '********** ${STAGE_NAME} **********'
+        sh npm i
       }
     }
+
+    // stage("Build"){
+    //   steps {  
+    //     echo "The name of this stage: ${STAGE_NAME}"
+    //     sh'''
+    //       npm i
+    //     '''
+    //   }
+    // }
     
     stage("Test") {
       steps {  
