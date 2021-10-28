@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "e": "^0.2.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "cypress": "^8.7.0",
+    "express-handlebars": "^5.3.4",
+    "jest": "^27.3.1",
+    "supertest": "^6.1.6"
+  }
+}

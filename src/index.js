@@ -18,7 +18,7 @@ app.listen(3000, () => {
   console.log('[LAUNCHED] http://localhost:3000/');
 });
 
-//ROUTES
+// ROUTES
 app.get('/', (req, res) => {
   var posts = generatePosts(db_posts);
   res.render('post-card', { posts: posts });
@@ -31,3 +31,5 @@ app.get('/connections', (req, res) => {
 app.get('/comments', (req, res) => {
   res.render('comments');
 });
+
+module.export = app;

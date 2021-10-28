@@ -1,18 +1,18 @@
-import db_users from "./users.js";
+const db_users = require('./users.js');
 
 var db_posts = [
   {
     user: db_users[0],
-    post: "./posts/markdown.txt",
+    post: './posts/downloaded/IDC.txt',
   },
   {
     user: db_users[1],
-    post: "./posts/milestones.txt",
+    post: './posts/downloaded/milestones.txt',
   },
   {
     user: db_users[2],
-    post: "./posts/teaching.txt",
+    post: './posts/downloaded/teaching_code.txt',
   },
 ];
 
-export default db_posts;
+module.exports = db_posts;

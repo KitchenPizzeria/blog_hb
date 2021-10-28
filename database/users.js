@@ -1,16 +1,16 @@
 var db_users = [
   {
     user_id: 0,
-    name: "Joseph",
+    name: 'Daisy',
   },
   {
     user_id: 1,
-    name: "Khizar",
+    name: 'Sophie',
   },
   {
     user_id: 2,
-    name: "Philip",
+    name: 'Mark',
   },
 ];
 
-export default db_users;
+module.exports = db_users;

@@ -1,15 +1,17 @@
 <style>
-    h1 {
-        margin-left: 30px;
-        font-style: :underline;
+    .header {
+        padding-top: 30px;
+        padding-left: 30px;
+        font-style: : underline;
     }
+    
     .body {
         background-color: yellow;
     }
+
     h7 {
         margin-top: 0.5vh;
         margin-left:10px;
-
     }
 
     .post-info {
@@ -49,7 +51,6 @@
         margin-bottom: 20px;
     }
 
-
     .nav-item:hover {
         background-color: white;;
         border-radius: 10px;
@@ -72,7 +73,7 @@
 </style>
 
 <div class = 'featured-posts'>
-    <h1 style="underline">Featured Posts</h1>
+    <h1 class = 'header' style="underline">Featured Posts</h1>
     <div class="cards">
     {{#each posts}}
         <div class="card">

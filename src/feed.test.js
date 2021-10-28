@@ -1,8 +1,8 @@
-// const generatePosts = require('./feed');
-// const db = require('../database/users.js');
+const generatePosts = require('./feed');
+const db = require('../database/posts.js');
+const fs = require('fs');
 
-// test('blog posts can be read and imported correctly', () => {
-//   const value = generatePosts(db);
-//   console.log(value);
-//   expect(value).toBe([]);
-// });
+test('blog posts can be read and imported correctly', () => {
+  const value = generatePosts(db);
+  expect(value['body']).toBe(fs.readFileSync('IDC.txt', 'utf8'));
+});
