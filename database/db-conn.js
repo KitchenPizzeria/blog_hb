@@ -1,5 +1,6 @@
-const { MongoClient } = require("mongodb");
-const connectionString = `mongodb+srv://root:admin@cluster0.mxzcz.mongodb.net/mySecondDatabase?retryWrites=true&w=majority`;
+const { MongoClient } = require('mongodb');
+const connectionString =
+  'mongodb+srv://root:admin@cluster0.mxzcz.mongodb.net/mySecondDatabase?retryWrites=true&w=majority';
 const client = new MongoClient(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -14,8 +15,8 @@ module.exports = {
         return callback(err);
       }
 
-      dbConnection = db.db("myFirstDatabase");
-      console.log("Successfully connected to MongoDB.");
+      dbConnection = db.db('myFirstDatabase');
+      console.log('Successfully connected to MongoDB.');
 
       return callback();
     });

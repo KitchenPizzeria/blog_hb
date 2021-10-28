@@ -9,21 +9,12 @@ pipeline {
 
   stages {
 
-    stage("Download Dependencies"){
+    stage("Build"){
       steps{
         echo "********** ${STAGE_NAME} **********"
         sh "npm i"
       }
     }
-
-    // stage("Build"){
-    //   steps {  
-    //     echo "The name of this stage: ${STAGE_NAME}"
-    //     sh'''
-    //       npm i
-    //     '''
-    //   }
-    // }
     
     stage("Test") {
       steps {  
@@ -39,7 +30,11 @@ pipeline {
         echo "The name of this stage: ${STAGE_NAME}"
         sh """
           mkdir -p build
-          mv ${FILENAME} build
+          mv database build/database
+          mv src build/src
+          mv views build/views
+          mv getBlogInfo.sh build/getBlogInfo.sh
+          mv package.json build/package.json
           tar -zcvf build.tgz build
         """
       }
@@ -51,32 +46,32 @@ pipeline {
       }
     }
       
-    stage("Deploy"){
-      steps {
-        echo "The name of this stage: ${STAGE_NAME}"
-        sshPublisher(
-          publishers: [
-            sshPublisherDesc(
-              configName: 'AWS deployment server', 
-              transfers: [
-                sshTransfer(
-                  cleanRemote: false,
-                  excludes: '', 
-                  execCommand: '''tar -zxvf build.tgz 
-                                mv build/index.html /var/www/html/index.html''', 
-                  execTimeout: 120000, 
-                  flatten: false, 
-                  makeEmptyDirs: false, 
-                  noDefaultExcludes: false, 
-                  patternSeparator: '[, ]+', 
-                  remoteDirectory: '', 
-                  remoteDirectorySDF: false, 
-                  removePrefix: '', 
-                  sourceFiles: 'build.tgz'
-                )
-              ], usePromotionTimestamp: false, useWorkspaceInPromotion: false,  verbose: false)])
-      }
-    }
+  //   stage("Deploy"){
+  //     steps {
+  //       echo "The name of this stage: ${STAGE_NAME}"
+  //       sshPublisher(
+  //         publishers: [
+  //           sshPublisherDesc(
+  //             configName: 'AWS deployment server', 
+  //             transfers: [
+  //               sshTransfer(
+  //                 cleanRemote: false,
+  //                 excludes: '', 
+  //                 execCommand: '''tar -zxvf build.tgz 
+  //                               mv build/index.html /var/www/html/index.html''', 
+  //                 execTimeout: 120000, 
+  //                 flatten: false, 
+  //                 makeEmptyDirs: false, 
+  //                 noDefaultExcludes: false, 
+  //                 patternSeparator: '[, ]+', 
+  //                 remoteDirectory: '', 
+  //                 remoteDirectorySDF: false, 
+  //                 removePrefix: '', 
+  //                 sourceFiles: 'build.tgz'
+  //               )
+  //             ], usePromotionTimestamp: false, useWorkspaceInPromotion: false,  verbose: false)])
+  //     }
+  //   }
     
   }
   
