@@ -34,7 +34,6 @@ pipeline {
           mv src build/src
           mv views build/views
           mv getBlogInfo.sh build/getBlogInfo.sh
-          mv package.json build/package.json
           tar -zcvf build.tgz build
         """
       }
