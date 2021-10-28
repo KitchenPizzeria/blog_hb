@@ -11,8 +11,8 @@ pipeline {
 
     stage("Download Dependencies"){
       steps{
-        echo '********** ${STAGE_NAME} **********'
-        sh 'npm i'
+        echo "********** ${STAGE_NAME} **********"
+        sh "npm i"
       }
     }
 
