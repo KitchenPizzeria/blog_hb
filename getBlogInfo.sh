@@ -1,25 +1,30 @@
-
-teaching=https://academy-project-blogs.s3-eu-west-1.amazonaws.com/teaching_code.doc
-idc=https://academy-project-blogs.s3-eu-west-1.amazonaws.com/IDC.md
-milestone=https://academy-project-blogs.s3-eu-west-1.amazonaws.com/milestones.txt
+#!/bin/bash
 
 # Criteria
 # Blogs are non-empty and not too large
-# convert files to .txt format
-
-declare -a blogs=("${teaching}" "${idc}" "${milestone}")
-declare -a verif_blogs=()
-
-for blog in ${blogs}
+# change file names to .txt format
+for blog in $(cat posts/urls.txt);
 do
-    file=$(curl -sI ${blog})
-    size=$(${file} | grep -i Content-Length | awk '{print $2}')
-    if [[ ! -z ${file} && ${size} < 999999 ]]
+    content=$(curl -s "${blog}")
+    
+    IFS='/' 
+    read -a path <<< "$blog"
+    path=${path[${#path[@]}-1]}
+
+    IFS='.' 
+    read -a file <<< "$path"
+    filename="sadfdsaf/asdfasf/asdfasf/asdfasf"
+    #filename="posts/test-downloaded/${file}.txt"
+    #echo "FILENAME: $filename"
+    #echo yes > "sadfdsaf/asdfasf/asdfasf/asdfasf.txt"
+done 
+
+for file in posts/downloaded/*;
+do
+    size=$(wc -c < "$file")
+    if [[ ${size} != 0 && ${size} < 999999 ]] # Less than 100MB and non-empty
     then
-        IFS="/"
-        read -a strarr <<< ${blog}
-        echo "${strarr[@]}"
+        echo $file
+        $(mv $file ../verified/$file)
     fi
 done
-
-

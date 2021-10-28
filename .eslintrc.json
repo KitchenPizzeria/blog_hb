@@ -19,7 +19,6 @@
             "single"
         ],
         "spaced-comment": "warn",
-        "camelcase": "warn",
         "no-undef":"warn"
     }
 }

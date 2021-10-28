@@ -3,6 +3,7 @@ How do you optimise DevOps for innovation at scale?
 This was the overarching question at this year’s IDC DevOps Conference. Optimising DevOps goes beyond trialling DevOps in a pocket of your organisation. Optimisation is about scaling DevOps principles and new ways of working to accelerate application delivery.
 
 IDC predict that by 2021, 80% of European organisations will have adopted DevOps, but only 10% will be excelling performance and delivery cycles. This statistic draws parallels with McKinsey, who state that the success rates for transformation initiatives currently sits at 4-11%, with this jumping to an unexceptional 26% within high tech industries.
+
 One of the biggest culprits of failure is siloes. Siloed teams, siloed thinking and siloed execution. Everyone has a role to play in a transformation, and the sooner you facilitate a wholistic team ownership, the greater your chances of success.
 
 There is also the problem of changing for change sake.

@@ -27,7 +27,7 @@ pipeline {
     
     stage("Package Artifact"){
       steps {
-        echo "The name of this stage: ${STAGE_NAME}"
+        echo "********** ${STAGE_NAME} **********"
         sh """
           mkdir -p build
           mv database build/database
@@ -42,6 +42,7 @@ pipeline {
     
     stage("Archive Artifact"){
       steps{
+        echo "********** ${STAGE_NAME} **********"
         archiveArtifacts artifacts: 'build.tgz', onlyIfSuccessful: true
       }
     }
