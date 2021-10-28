@@ -6,41 +6,29 @@ pipeline {
     timestamps()
     disableConcurrentBuilds()
   }  
-  
-  environment {
-     FILENAME = "index.html"
-     GITHUB = credentials("GitHub")
-  }
-  
-//   parameters {
-//      string(name: 'name', defaultValue: 'Joseph')
-//      text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
-//      booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
-//      choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-//      password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
-//   }
 
   stages {
     stage("Build"){
       steps {  
         echo "The name of this stage: ${STAGE_NAME}"
-        //echo "The credentials Username: ${GITHUB_USER}"
-        //greeting(params.name)
+        sh'''
+          npm i
+        '''
       }
     }
     
-    
-//     stage("Test") {
-//       steps {            
-//           sh """         
-//             chmod +x contains.sh 
-//             ./contains.sh "jenkins"
-//           """
-//       } 
-//     }
+    stage("Test") {
+      steps {  
+        echo "The name of this stage: ${STAGE_NAME}"          
+        sh """         
+          npm test
+        """
+      } 
+    }
     
     stage("Package Artifact"){
       steps {
+        echo "The name of this stage: ${STAGE_NAME}"
         sh """
           mkdir -p build
           mv ${FILENAME} build
