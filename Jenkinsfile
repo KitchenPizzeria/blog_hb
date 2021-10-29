@@ -16,14 +16,14 @@ pipeline {
       }
     }
     
-    // stage("Test") {
-    //   steps {  
-    //     echo "The name of this stage: ${STAGE_NAME}"          
-    //     sh """         
-    //       npm test
-    //     """
-    //   } 
-    // }
+    stage("Test") {
+      steps {  
+        echo "The name of this stage: ${STAGE_NAME}"          
+        sh """         
+          npm run cy
+        """
+      } 
+    }
     
     stage("Package Artifact"){
       steps {
