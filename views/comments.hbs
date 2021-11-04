@@ -1,26 +1,58 @@
-<form class="searchbar">
-    <div class="input-group">
-    <span class="input-group-text" id="basic-addon1">@</span>
-    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-    </div>
-</form>
+<style>
+    h1 {
+        padding: 10px;
+    }
+    .cards {
+        margin: 20px;
+        gap: 20px ;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        font-family: sans-serif;
+    }
+    .searchbar{
+        
+        width:22%;
+        padding: 20px;
+    }
+    .comments-box{
+        margin: 10px;
+        width: 95%;
+        height:80%;
+        background-color: rgb(187, 159, 206);
+        border-radius: 10px;
+    }
+</style>
 
-<div class="card">
-    <div class="card-header">   
-        <h4>Recent Commens</h4>
+<div class = "comments-box">
+    <h1>Comments</h1>
+
+    <form class="searchbar">
+        <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search Comments" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+    </form>
+
+    <div class="cards">
+        <div class="card">
+            <div class="card-header">   
+                <h4>Recent Comments</h4>
+            </div>
+
+            <div class="card-body">
+                <p>Read some posts and let people know what you think</p>
+                <p>and they will show up here !</p>
+            </div>  
+        </div>
+        <div class="card">
+            <div class="card-header">   
+                <h4>Your Commented Posts</h4>
+            </div>
+
+            <div class="card-body">
+                <p>Make a blog and see here what people think about it</p>
+            </div>  
+        </div>
     </div>
 
-    <div class="card-body">
-        <p>Read some posts  and let people know what you think</p>
-        <p> and they will show up here !</p>
-    </div>  
 </div>
-<div class="card">
-    <div class="card-header">   
-        <h4>Your Comments</h4>
-    </div>
 
-    <div class="card-body">
-        <p>Make a blog and see here what people thinka about it</p>
-    </div>  
-</div>

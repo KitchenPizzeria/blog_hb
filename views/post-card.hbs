@@ -4,7 +4,7 @@
         padding-left: 30px;
         font-style: : underline;
     }
-    
+
     .body {
         background-color: yellow;
     }
@@ -47,6 +47,7 @@
     }
 
     .card {
+        border-radius: 10px;
         margin-top: 20px;
         margin-bottom: 20px;
     }
@@ -63,58 +64,86 @@
         grid-template-columns: repeat(3, 1fr);
         font-family: sans-serif;
     }
+
     .featured-posts{
         margin: 20px;
-        background-color: rgb(166, 223, 215);
+        background-color: rgb(217, 240, 215);
         border-radius: 10px;
         border-color: rgb(116, 216, 203);
         font-family: sans-serif;
     }
+
+    .other-posts {
+        border-radius: 10px;
+        padding: 50px;
+        width: 100%;
+        height 150px;
+        background-color: rgb(192, 214, 211) ;
+    }
+
+    .blocks {
+        display: grid;
+        gap: 20px
+        width: 80%
+    }
+
+    .list-group-item {
+        height: 50px;
+        width: 40vh;
+    }
 </style>
-
-<div class = 'featured-posts'>
-    <h1 class = 'header' style="underline">Featured Posts</h1>
-    <div class="cards">
-    {{#each posts}}
-        <div class="card">
-            <div class="card-header">
-                <div class="post-info">
-                    <h4>{{this.user}}</h4>
-                    <h7>{{this.time}}</h7> 
-                    <h7>{{this.user_id}}</h7>
+<script src="~/blog/src/connection.js"></script>
+<div class="blocks">
+    <div class = 'featured-posts'>
+        <h1 class = 'header' style="underline">Featured Posts</h1>
+        <div class="cards">
+        {{#each posts}}
+            <div class="card">
+                <div class="card-header">
+                    <div class="post-info">
+                        <h4>{{this.user}}</h4>
+                        <h7>{{this.time}}</h7> 
+                    </div>
+                    <div class="button-list">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link" id= {{this.user_id}} onclick="add_connection(this.id)">Connect</a>
+                                
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" >Like</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" >Comment</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="button-list">
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link" id= {{this.user_id}} onclick="add_connection(this.id)">Connect</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Like</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Share</a>
-                        </li>
-                    </ul>
-                </div>
-                
-                
 
-            </div>
+                <div class="card-body">
+                    <p>{{this.body}}</p>
+                </div>  
 
-            <div class="card-body">
-                <p>{{this.body}}</p>
-            </div>  
-
-            <div class="comments">
                 <ul class="comments">
-                    <li class="list-group-item">User303: What a great read !!</li>
-                    <li class="list-group-item">simon_watts: good work</li>
+                    {{#each comments}}
+                        <li class="list-group-item">
+                            <p>{{this.name}}: {{this.body}}</p>
+                        </li>
+                    {{/each}}
                 </ul>
+            
             </div>
+        {{/each}}
         </div>
-    {{/each}}
+
+        
+    </div>
+    <div class="other-posts">
+        <h1 class="post-header">Posts</h1>
     </div>
 </div>
+
+
 
 
 

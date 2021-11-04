@@ -1,9 +1,13 @@
 <html>
     <head>
         <style>
+            h1 {
+                padding: 10px;
+            }
             .searchbar {
+                padding-left: 10px;
                 margin-top:10px;
-                width: 22%;
+                width: 20%;
             }
             
             .card {
@@ -18,37 +22,49 @@
             .form-control:hover{
                 border-style: double;
             }
+            .connection-boxes{ 
+                margin:10px;
+                width: 95%;
+                height:80%;
+                background-color: rgb(240, 146, 146);
+                border-radius: 10px;
+            }
         </style>
-        <script type="text/javascript" src="../connections.js"></script>
+        <script type="text/javascript" src="src/connections.js"></script>
     </head>
 
     <body>
-        <form class="searchbar">
-            <div class="input-group">
-            <span class="input-group-text" id="basic-addon1">@</span>
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-        </form>
+        <div class="connection-boxes">
+            <h1>Connections Page</h1>
 
-        <div class="card">
-            <div class="card-header">   
-                <h4>Recent Connections</h4>
+            <form class="searchbar">
+                <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+            </form>
+
+            <div class="card">
+                <div class="card-header">   
+                    <h4>Recent Connections</h4>
+                </div>
+
+                <div class="card-body">
+                    <p>Make some connections and they will show up here !</p>
+                </div>  
             </div>
 
-            <div class="card-body">
-                <p>Make some connections and they will show up here !</p>
-            </div>  
+            <div class="card">
+                <div class="card-header">   
+                    <h4>Trending</h4>
+                </div>
+
+                <div class="card-body">
+                    <p>People you connect with will have their blogs shown here</p>
+                </div>  
+            </div>
+
         </div>
-        <div class="card">
-            <div class="card-header">   
-                <h4>Trending</h4>
-            </div>
-
-            <div class="card-body">
-                <p>People you connect with will have timeline snippets here</p>
-            </div>  
-        </div>
-        
     </body>
 
 </html>

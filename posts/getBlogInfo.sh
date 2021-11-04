@@ -3,6 +3,7 @@
 # Criteria
 # Blogs are non-empty and not too large
 # change file names to .txt format
+
 for blog in $(cat posts/urls.txt);
 do
     content=$(curl -s "${blog}")
@@ -13,10 +14,9 @@ do
 
     IFS='.' 
     read -a file <<< "$path"
-    filename="sadfdsaf/asdfasf/asdfasf/asdfasf"
-    #filename="posts/test-downloaded/${file}.txt"
-    #echo "FILENAME: $filename"
-    #echo yes > "sadfdsaf/asdfasf/asdfasf/asdfasf.txt"
+    filename="downloaded/${file}.txt"
+    echo "FILENAME: $filename"
+    echo "$content" > "$filename"
 done 
 
 for file in posts/downloaded/*;

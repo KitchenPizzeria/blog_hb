@@ -21,7 +21,12 @@ app.listen(3000, () => {
 // ROUTES
 app.get('/', (req, res) => {
   var posts = generatePosts(db_posts);
-  res.render('post-card', { posts: posts });
+  res.render('post-card', { posts: posts, comments: posts['comments'] });
+  //res.send('main', { posts: posts });
+});
+
+app.get('/add', (req, res) => {
+  res.render('add-blog');
 });
 
 app.get('/connections', (req, res) => {

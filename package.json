@@ -1,11 +1,14 @@
 {
   "scripts": {
-    "test": "jest",
-    "start": "nodemon src/index.js"
+    "test": "nodemon index.test.js",
+    "start": "nodemon src/index.js",
+    "cy":"cypress open",
+    "cy:run":"cypress run"
   },
   "dependencies": {
     "e": "^0.2.1",
     "express": "^4.17.1"
+
   },
   "devDependencies": {
     "cypress": "^8.7.0",
