@@ -16,15 +16,6 @@ pipeline {
       }
     }
     
-    // stage("Test") {
-    //   steps {  
-    //     echo "The name of this stage: ${STAGE_NAME}"          
-    //     sh """         
-    //       npm test
-    //     """
-    //   } 
-    // }
-    
     stage("Package Artifact"){
       steps {
         echo "********** ${STAGE_NAME} **********"
