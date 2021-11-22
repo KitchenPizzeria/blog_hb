@@ -3,7 +3,7 @@ FROM node:17.1-stretch-slim
 WORKDIR /blog
 RUN mkdir -p src posts downloads
 
-COPY package*.json src/ posts/ database./
+COPY . .
 
 RUN npm i
 
