@@ -12,6 +12,7 @@ pipelines:
               - node
 
         - step:
+            name: Docker Build/Push
             script:
               - docker build -t je-ifw:$BITBUCKET_BRANCH .
               - docker push 603825719481.dkr.ecr.eu-west-1.amazonaws.com/je-ifw:latest
