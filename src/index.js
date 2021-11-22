@@ -5,7 +5,6 @@ const db_posts = require('../database/posts.js');
 const generatePosts = require('./feed.js');
 
 const app = express();
-var port = normalizePort(process.env.PORT || '3000');
 
 app.engine(
   'hbs',
@@ -16,7 +15,7 @@ app.engine(
 );
 app.set('view engine', 'hbs');
 
-app.listen(port, () => {
+app.listen(3000, () => {
   console.log('[LAUNCHED] http://localhost:3000/');
 });
 
