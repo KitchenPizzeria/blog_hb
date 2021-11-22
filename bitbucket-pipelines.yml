@@ -1,0 +1,26 @@
+image: node:16
+
+pipelines:
+  default:
+    - parallel:
+        - step:
+            name: Build and Test
+            caches:
+              - node
+            script:
+              - npm install
+              - npm test
+        - step:
+            name: Code linting
+            script:
+              - npm install eslint
+              - npx eslint .
+            caches:
+              - node
+
+        - step:
+            script:
+              - docker build -t je-ifw:$BITBUCKET_BRANCH .
+              - docker push 603825719481.dkr.ecr.eu-west-1.amazonaws.com/je-ifw:latest
+            services:
+              - docker
