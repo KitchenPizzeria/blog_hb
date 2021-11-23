@@ -19,22 +19,12 @@ pipelines:
         script:
           - apt-get update
           - apt-get -y install awscli
-          - aws configure set aws_access_key $AWS_ACCESS_KEY
-          - aws configure set aws_secret_access_key $AWS_SECRET_KEY
+          - aws configure set aws_access_key ASIAYZFWRJC4RYFS5LHA
+          - aws configure set aws_secret_access_key COpvpQmU+y6prmsoD6HKgJZ7yV44HkIP9Bao3LI2
           - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 603825719481.dkr.ecr.eu-west-1.amazonaws.com
-    - step:
-        name: Docker Build
-        services:
-          - Docker
-        script:
           - TAG=${BITBUCKET_BRANCH:-$BITBUCKET_TAG}
           - IMAGE=603825719481.dkr.ecr.eu-west-1.amazonaws.com/je-ifw
           - docker build -t $IMAGE:$TAG .
-    - step:
-        name: Docker Push
-        services:
-          - Docker
-        script:
           - docker push $IMAGE:$TAG
           # - docker tag je-ifw:$BITBUCKET_BRANCH 603825719481.dkr.ecr.eu-west-1.amazonaws.com/je-ifw:$BITBUCKET_BRANCH
           # - docker push 603825719481.dkr.ecr.eu-west-1.amazonaws.com/je-ifw:$BITBUCKET_BRANCH
