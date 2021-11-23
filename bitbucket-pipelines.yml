@@ -14,10 +14,9 @@ pipelines:
     #           - node
     - step:
         name: Download AWS CLI
-        caches:
-          - pip
         script:
-          - pip3 install awscli
+          - apt-get update
+          - apt-get install awscli
     - step:
         name: AWS Authentication
         script:
