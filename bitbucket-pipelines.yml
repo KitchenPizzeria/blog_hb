@@ -13,12 +13,14 @@ pipelines:
     #         caches:
     #           - node
 
-        - step:
-            name: Docker Build/Push
-            script:
-              - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 603825719481.dkr.ecr.eu-west-1.amazonaws.com
-              - docker build -t je-ifw:$BITBUCKET_BRANCH .
-              - docker tag je-ifw:$BITBUCKET_BRANCH 603825719481.dkr.ecr.eu-west-1.amazonaws.com/je-ifw:$BITBUCKET_BRANCH
-              - docker push 603825719481.dkr.ecr.eu-west-1.amazonaws.com/je-ifw:$BITBUCKET_BRANCH
-            services:
-              - docker
+    - step:
+        name: Docker Build/Push
+        script:
+          - apt-get update && apt-get install -y awscli
+          - echo $(aws --version)
+          - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 603825719481.dkr.ecr.eu-west-1.amazonaws.com
+          - docker build -t je-ifw:$BITBUCKET_BRANCH .
+          - docker tag je-ifw:$BITBUCKET_BRANCH 603825719481.dkr.ecr.eu-west-1.amazonaws.com/je-ifw:$BITBUCKET_BRANCH
+          - docker push 603825719481.dkr.ecr.eu-west-1.amazonaws.com/je-ifw:$BITBUCKET_BRANCH
+        services:
+          - docker
