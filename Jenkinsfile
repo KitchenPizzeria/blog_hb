@@ -6,21 +6,27 @@ pipeline {
             IMAGE_REPO="je-ifw"
             ECR_REPO_URI="603825719481.dkr.ecr.eu-west-1.amazonaws.com/${IMAGE_REPO}"
       }
+
       stages {
+
             stage("Logging into AWS ECR") {
-                  script{
-                        echo "---------- ${STAGE_NAME} ----------"
-                        sh "aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 603825719481.dkr.ecr.eu-west-1.amazonaws.com"
+                  steps{
+                        script{
+                              echo "---------- ${STAGE_NAME} ----------"
+                              sh "aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 603825719481.dkr.ecr.eu-west-1.amazonaws.com"
+                        }
                   }
             }
+
             stage('Building Docker Image') { 
                   steps {
                         script{
-                              sh 'echo "---------- ${STAGE_NAME} ----------"'
+                              echo "---------- ${STAGE_NAME} ----------"
                               sh "docker build -t ${IMAGE_REPO} ."
                         }
                   }
             }        
+
             stage('Deploy Image to ECR') {
                   steps{
                         script{
@@ -29,8 +35,8 @@ pipeline {
                                     docker push 603825719481.dkr.ecr.eu-west-1.amazonaws.com/je-ifw:latest
                               '''
                         }
-                        
                   }
             }
+
       }
 }
