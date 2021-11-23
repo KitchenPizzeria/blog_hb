@@ -8,12 +8,12 @@
   "dependencies": {
     "e": "^0.2.1",
     "express": "^4.17.1",
+    "express-handlebars": "^6.0.1",
     "nodemon": "^2.0.14",
     "relay": "^0.8.0-1"
   },
   "devDependencies": {
     "cypress": "^8.7.0",
-    "express-handlebars": "^5.3.4",
     "jest": "^27.3.1",
     "supertest": "^6.1.6"
   }

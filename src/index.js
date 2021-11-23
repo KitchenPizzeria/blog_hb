@@ -1,5 +1,6 @@
 const express = require('express');
-const exphbs = require('express-handlebars');
+const { engine } = require('express-handlebars');
+
 const db_posts = require('../database/posts.js');
 const generatePosts = require('./feed.js');
 
@@ -7,7 +8,7 @@ const app = express();
 
 app.engine(
   'hbs',
-  exphbs({
+  engine({
     defaultLayout: 'main',
     extname: '.hbs',
   })

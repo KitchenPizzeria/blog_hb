@@ -1,13 +1,11 @@
-FROM node
+FROM node:17.1-stretch-slim
 
-WORKDIR /usr/blog
-
-COPY package*.json ./
-
-RUN npm install
+WORKDIR /blog
+RUN mkdir -p src posts downloads
 
 COPY . .
 
+RUN npm i
+
 EXPOSE 3000
-EXPOSE 5503
 CMD ["npm","start"]
