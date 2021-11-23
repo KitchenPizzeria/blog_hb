@@ -7,8 +7,8 @@ pipelines:
     dev:
       - step:
           script:
-              - aws configure set AWS_ACCESS_KEY_ID ASIAYZFWRJC45AE7KJ6E
-              - aws configure set AWS_SECRET_ACCESS_KEY b93f9vj3o+/quMoOLc/iGW4GMs018fd1UWwsr9BI
+              - aws configure set AWS_ACCESS_KEY_ID ASIAYZFWRJC42QJSXYUU
+              - aws configure set AWS_SECRET_ACCESS_KEY lIWspgHLd970W2TKsYdfHmih7zZDbgpR6+yxtCiG
               - aws configure set region eu-west-1
               - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 603825719481.dkr.ecr.eu-west-1.amazonaws.com
               - docker build -t je-ifw .
