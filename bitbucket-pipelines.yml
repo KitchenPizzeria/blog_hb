@@ -17,6 +17,15 @@ pipelines:
     - step:
         script:
             - eval $(aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
+<<<<<<< HEAD
             - docker build -t je-ifw .
             - docker tag je-ifw:latest 603825719481.dkr.ecr.eu-west-1.amazonaws.com/je-ifw:latest
             - docker push 603825719481.dkr.ecr.eu-west-1.amazonaws.com/je-ifw:latest
+=======
+            # docker
+            - export BUILD_ID=$BITBUCKET_BRANCH_$BITBUCKET_COMMIT_$BITBUCKET_BUILD_NUMBER
+            - docker build --tag test:30 .
+            - docker push $AWS_REGISTRY_URL:$BUILD_ID
+            - docker tag ${AWS_REGISTRY_URL}:${BUILD_ID} ${AWS_REGISTRY_URL}:development
+            - docker push ${AWS_REGISTRY_URL}:development
+>>>>>>> a0a32647c522767632738c809b7eb9c3be4a2593
