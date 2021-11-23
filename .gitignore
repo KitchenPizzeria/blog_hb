@@ -4,3 +4,4 @@ package-lock.json
 posts/downloaded
 # Local Netlify folder
 .netlify
+terraform/
