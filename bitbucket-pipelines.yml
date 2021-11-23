@@ -2,21 +2,23 @@ image: node:16
 
 pipelines:
   default:
-    - parallel:
-        - step:
-            name: Code linting
-            script:
-              - npm install eslint
-              - npx eslint .
-            caches:
-              - node
+    - step:
+        script:
+          - echo $BITBUCKET_BRANCH
+        # - step:
+        #     name: Code linting
+        #     script:
+        #       - npm install eslint
+        #       - npx eslint .
+        #     caches:
+        #       - node
 
-        - step:
-            name: Docker Build/Push
-            script:
-              #- aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 603825719481.dkr.ecr.eu-west-1.amazonaws.com
-              - docker build -t je-ifw:$BITBUCKET_BRANCH .
-              - docker tag je-ifw:$BITBUCKET_BRANCH 603825719481.dkr.ecr.eu-west-1.amazonaws.com/je-ifw:$BITBUCKET_BRANCH
-              - docker push 603825719481.dkr.ecr.eu-west-1.amazonaws.com/je-ifw:$BITBUCKET_BRANCH
-            services:
-              - docker
+        # - step:
+        #     name: Docker Build/Push
+        #     script:
+        #       #- aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 603825719481.dkr.ecr.eu-west-1.amazonaws.com
+        #       - docker build -t je-ifw:$BITBUCKET_BRANCH .
+        #       - docker tag je-ifw:$BITBUCKET_BRANCH 603825719481.dkr.ecr.eu-west-1.amazonaws.com/je-ifw:$BITBUCKET_BRANCH
+        #       - docker push 603825719481.dkr.ecr.eu-west-1.amazonaws.com/je-ifw:$BITBUCKET_BRANCH
+        #     services:
+        #       - docker
