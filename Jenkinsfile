@@ -1,5 +1,4 @@
 pipeline {
-      def app
       agent any
       environment {
             AWS_ACCESS_KEY_ID="AKIAYZFWRJC45XCYPKPL"
@@ -17,7 +16,7 @@ pipeline {
             steps {
                   script{
                         sh 'echo "---------- ${STAGE_NAME} ----------"'
-                        dockerImage = docker.build(${IMAGE_REPO})
+                        sh "docker build -t ${IMAGE_REPO} ."
                   }
             }
       }        
